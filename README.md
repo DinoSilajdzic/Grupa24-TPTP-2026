@@ -9,9 +9,9 @@ Ovaj projekat predstavlja web shop za prodaju autodijelova pod nazivom “AutoDi
 
 | Dino Silajdzic | @DinoSilajdzic | HTML + struktura |
 
-| Dino Porcic | @emir.basic | CSS + dizajn |
+| Dino Porcic | @dincee06 | CSS + dizajn |
 
-| Dorde Kuga | @lejla.muric | JavaScript |
+| Dorde Kuga | @djordjek123 | JavaScript |
 
 ## Tehnologije
 - HTML5
