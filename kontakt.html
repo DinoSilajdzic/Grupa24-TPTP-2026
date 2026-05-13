@@ -2,16 +2,252 @@
 <html lang="bs">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AutoDijelovi Kuga-Kontakt</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>AutoDijelovi Kuga - Kontakt</title>
 
     <!-- Povezivanje CSS fajla -->
     <link rel="stylesheet" href="css/tptpstil.css">
 
     <!-- Povezivanje JavaScript fajla -->
     <script src="js/tptpskripte.js" defer></script>
+
 </head>
+
+<body id="top">
+
+    <!-- HEADER -->
+    <header>
+
+        <div class="logo">
+
+            <img src="images/logo.png"
+                alt="Logo AutoDijelovi Kuga">
+
+            <h1>AutoDijelovi Kuga</h1>
+
+        </div>
+
+        <!-- Navigacija -->
+        <nav>
+
+            <a href="index.html">Početna</a>
+            <a href="sadrzaj.html">Sadržaj</a>
+            <a href="kontakt.html">Kontakt</a>
+
+            <!-- GitHub link -->
+            <a href="https://github.com/"
+                target="_blank">
+
+                GitHub Repozitorij
+
+            </a>
+
+        </nav>
+
+    </header>
+
+    <!-- MAIN -->
+    <main>
+
+        <!-- SEKCIJA KONTAKT -->
+        <section class="kontakt-sekcija">
+
+            <h2>Kontakt forma</h2>
+
+            <p>
+                Ukoliko imate pitanja o proizvodima,
+                narudžbama ili reklamacijama,
+                kontaktirajte nas putem forme ispod.
+            </p>
+
+            <!-- FORMA -->
+            <form id="kontakt-forma">
+
+                <!-- IME -->
+                <div class="form-grupa">
+
+                    <label for="ime">
+                        Ime:
+                    </label>
+
+                    <input type="text"
+                        id="ime"
+                        name="ime"
+                        placeholder="Unesite ime">
+
+                    <!-- JS greška -->
+                    <small class="greska"></small>
+
+                </div>
+
+                <!-- PREZIME -->
+                <div class="form-grupa">
+
+                    <label for="prezime">
+                        Prezime:
+                    </label>
+
+                    <input type="text"
+                        id="prezime"
+                        name="prezime"
+                        placeholder="Unesite prezime">
+
+                    <small class="greska"></small>
+
+                </div>
+
+                <!-- EMAIL -->
+                <div class="form-grupa">
+
+                    <label for="email">
+                        Email:
+                    </label>
+
+                    <input type="text"
+                        id="email"
+                        name="email"
+                        placeholder="example@email.com">
+
+                    <small class="greska"></small>
+
+                </div>
+
+                <!-- TELEFON -->
+                <div class="form-grupa">
+
+                    <label for="telefon">
+                        Telefon:
+                    </label>
+
+                    <input type="text"
+                        id="telefon"
+                        name="telefon"
+                        placeholder="061-123-456">
+
+                    <small class="greska"></small>
+
+                </div>
+
+                <!-- DROPDOWN -->
+                <div class="form-grupa">
+
+                    <label for="tema">
+                        Tema upita:
+                    </label>
+
+                    <select id="tema"
+                        name="tema">
+
+                        <option value="">
+                            Odaberite temu
+                        </option>
+
+                        <option value="narudzba">
+                            Narudžba
+                        </option>
+
+                        <option value="reklamacija">
+                            Reklamacija
+                        </option>
+
+                        <option value="informacije">
+                            Informacije o proizvodu
+                        </option>
+
+                    </select>
+
+                    <small class="greska"></small>
+
+                </div>
+
+                <!-- PORUKA -->
+                <div class="form-grupa">
+
+                    <label for="poruka">
+                        Poruka:
+                    </label>
+
+                    <textarea id="poruka"
+                        name="poruka"
+                        rows="6"
+                        placeholder="Unesite poruku">
+
+                    </textarea>
+
+                    <small class="greska"></small>
+
+                </div>
+
+                <!-- DUGMAD -->
+                <div class="dugmad">
+
+                    <button type="submit">
+                        Pošalji
+                    </button>
+
+                    <button type="reset">
+                        Resetuj
+                    </button>
+
+                </div>
+
+            </form>
+
+            <!-- USPJEŠNA PORUKA -->
+            <div id="uspjesna-poruka">
+
+            </div>
+
+        </section>
+
+        <!-- ASIDE -->
+        <aside>
+
+            <h2>Radno vrijeme</h2>
+
+            <p>
+                Ponedjeljak - Petak:
+                08:00 - 17:00
+            </p>
+
+            <p>
+                Subota:
+                09:00 - 14:00
+            </p>
+
+            <p>
+                Nedjelja:
+                Neradni dan
+            </p>
+
+        </aside>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 AutoDijelovi Kuga
+        </p>
+
+        <p>
+            Dino Silajdžić |
+            Dino Porčić |
+            Đorđe Kuga
+        </p>
+
+        <!-- Bookmark -->
+        <a href="#top">
+            Skoči na vrh
+        </a>
+
+    </footer>
+</body>
 
 </html>
