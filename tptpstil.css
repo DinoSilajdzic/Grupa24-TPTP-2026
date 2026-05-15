@@ -1,0 +1,289 @@
+/* AutoDijelovi Kuga – tptpstil.css */
+
+:root {
+  --boja-pozadina: #fff5f5;
+  --boja-tekst: #333;
+  --boja-crvena: #e8a4a4;
+  --boja-crvena-tamna: #c96a6a;
+  --boja-svijetla: #ffeaea;
+  --boja-okvir: #f0bcbc;
+  --boja-bijela: #fff;
+  --font-glavni: "Segoe UI", Tahoma, sans-serif;
+  --razmak: 1rem;
+  --sjena: 0 2px 10px rgba(201, 106, 106, 0.18);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-glavni);
+  background: var(--boja-pozadina);
+  color: var(--boja-tekst);
+  line-height: 1.5;
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+a {
+  color: var(--boja-crvena-tamna);
+  text-decoration: none;
+  transition: color 0.3s, background 0.3s;
+}
+a:hover { color: #a84848; }
+a:focus { outline: 2px solid var(--boja-crvena); outline-offset: 2px; }
+
+/* Flexbox – header i navigacija */
+header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--razmak);
+  padding: var(--razmak) 1.5rem;
+  background: var(--boja-bijela);
+  border-bottom: 2px solid var(--boja-okvir);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.logo img { height: 48px; }
+.logo h1 { margin: 0; font-size: 1.35rem; color: var(--boja-crvena-tamna); }
+
+header nav,
+body > nav:not(.sidebar) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+body > nav:not(.sidebar) {
+  justify-content: center;
+  padding: 0.7rem var(--razmak);
+  background: var(--boja-svijetla);
+  border-bottom: 1px solid var(--boja-okvir);
+}
+
+header nav a,
+body > nav:not(.sidebar) a {
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+}
+header nav a:hover,
+body > nav:not(.sidebar) a:hover { background: var(--boja-bijela); }
+
+/* Main */
+main {
+  padding: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+main:has(.sidebar),
+main:has(.kontakt-sekcija) {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+h2 { color: var(--boja-crvena-tamna); }
+.proizvodi h2::before { content: "▸ "; color: var(--boja-crvena); }
+
+.sidebar, .card, aside, .kontakt-sekcija, #motor, #felga, #ovjes {
+  background: var(--boja-bijela);
+  border: 1px solid var(--boja-okvir);
+  border-radius: 6px;
+}
+
+.sidebar { padding: var(--razmak); }
+.sidebar h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1.05rem;
+  border-bottom: 1px solid var(--boja-okvir);
+  padding-bottom: 0.4rem;
+}
+.sidebar ul { list-style: none; padding: 0; margin: 0; }
+.sidebar a { display: block; padding: 0.4rem 0.5rem; border-radius: 4px; }
+.sidebar a:hover { background: var(--boja-svijetla); }
+
+/* Grid kartice + Flex unutra */
+.cards-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--razmak);
+  margin-top: 0.75rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--razmak);
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+.card:hover {
+  border-color: var(--boja-crvena);
+  box-shadow: var(--sjena);
+  transform: translateY(-3px);
+}
+.card img {
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid var(--boja-okvir);
+  transition: opacity 0.3s;
+}
+.card:hover img { opacity: 0.9; }
+.card h3 { margin: 0.7rem 0 0.3rem; color: var(--boja-crvena-tamna); }
+.card p { flex-grow: 1; }
+.card a {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  background: var(--boja-crvena);
+  color: var(--boja-bijela);
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+.card a:hover { background: var(--boja-crvena-tamna); color: var(--boja-bijela); }
+
+aside, .kontakt-sekcija { padding: var(--razmak); }
+aside h2 { margin-top: 0; border-bottom: 1px solid var(--boja-okvir); padding-bottom: 0.4rem; }
+
+section { margin-bottom: 1.75rem; }
+section h2 { border-bottom: 2px solid var(--boja-okvir); padding-bottom: 0.35rem; }
+
+#motor, #felga, #ovjes {
+  padding: var(--razmak);
+  border-left: 4px solid var(--boja-crvena);
+}
+#motor:hover, #felga:hover, #ovjes:hover { background: var(--boja-svijetla); }
+
+#tabela table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--boja-bijela);
+  border: 1px solid var(--boja-okvir);
+  border-radius: 6px;
+  overflow: hidden;
+}
+#tabela th, #tabela td {
+  padding: 0.6rem 0.85rem;
+  border-bottom: 1px solid var(--boja-okvir);
+  text-align: left;
+}
+#tabela th { background: var(--boja-svijetla); color: var(--boja-crvena-tamna); }
+#tabela tbody tr { transition: background 0.3s; }
+#tabela tbody tr:nth-child(even) { background: #fffafa; }
+#tabela tbody tr:hover { background: var(--boja-svijetla); }
+
+#galerija { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+#galerija img, #mapa img {
+  border: 2px solid var(--boja-okvir);
+  border-radius: 4px;
+  transition: border-color 0.3s, opacity 0.3s;
+}
+#galerija img { width: 130px; }
+#mapa img { max-width: 100%; }
+#galerija img:hover, #mapa img:hover { border-color: var(--boja-crvena); opacity: 0.88; }
+#lista li:hover { color: var(--boja-crvena-tamna); }
+
+.form-grupa { margin-bottom: 0.9rem; }
+.form-grupa label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  color: var(--boja-crvena-tamna);
+}
+.form-grupa input,
+.form-grupa select,
+.form-grupa textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--boja-okvir);
+  border-radius: 4px;
+  font-family: var(--font-glavni);
+  background: var(--boja-bijela);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.form-grupa input:hover,
+.form-grupa select:hover,
+.form-grupa textarea:hover { border-color: var(--boja-crvena); }
+.form-grupa input:focus,
+.form-grupa select:focus,
+.form-grupa textarea:focus {
+  outline: none;
+  border-color: var(--boja-crvena-tamna);
+  box-shadow: 0 0 0 3px rgba(201, 106, 106, 0.25);
+}
+
+.dugmad { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.dugmad button {
+  padding: 0.5rem 1.2rem;
+  border-radius: 4px;
+  border: 1px solid var(--boja-okvir);
+  cursor: pointer;
+  font-family: var(--font-glavni);
+  transition: background 0.3s, transform 0.3s;
+}
+.dugmad button[type="submit"] {
+  background: var(--boja-crvena);
+  color: var(--boja-bijela);
+  border-color: var(--boja-crvena);
+}
+.dugmad button[type="submit"]:hover {
+  background: var(--boja-crvena-tamna);
+  transform: scale(1.03);
+}
+.dugmad button[type="reset"]:hover { background: var(--boja-svijetla); }
+.dugmad button:focus { outline: 2px solid var(--boja-crvena-tamna); outline-offset: 2px; }
+
+footer {
+  margin-top: 2rem;
+  padding: 1.2rem;
+  text-align: center;
+  background: var(--boja-svijetla);
+  border-top: 1px solid var(--boja-okvir);
+  font-size: 0.9rem;
+}
+footer a { padding: 0.2rem 0.4rem; border-radius: 3px; }
+footer a:hover { background: var(--boja-bijela); }
+
+/* Media: mobitel <600 | tablet 600-900 | desktop >900 */
+@media (max-width: 599px) {
+  header { flex-direction: column; text-align: center; }
+  .logo { flex-direction: column; }
+  main { padding: var(--razmak); }
+  #galerija img { width: 100%; max-width: 200px; }
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+  .cards-container { grid-template-columns: repeat(2, 1fr); }
+  main:has(.sidebar) {
+    grid-template-columns: 160px 1fr;
+    grid-template-areas: "meni proizvodi" "meni aside";
+  }
+  main:has(.kontakt-sekcija) { grid-template-columns: 1fr 220px; }
+}
+
+@media (min-width: 901px) {
+  .cards-container { grid-template-columns: repeat(3, 1fr); }
+  main:has(.sidebar) {
+    grid-template-columns: 190px 1fr;
+    grid-template-areas: "meni proizvodi" "meni aside";
+  }
+  main:has(.kontakt-sekcija) { grid-template-columns: 1fr 280px; }
+}
+
+@media (min-width: 600px) {
+  main:has(.sidebar) .sidebar { grid-area: meni; }
+  main:has(.sidebar) .proizvodi { grid-area: proizvodi; }
+  main:has(.sidebar) aside { grid-area: aside; margin-top: 0; }
+}
