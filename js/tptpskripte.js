@@ -19,3 +19,17 @@ dugme.addEventListener("click", function() {
         dugme.textContent = "Tamni mod";          
     }
 });
+
+//Smooth scroll
+let linkovi = document.querySelectorAll('a[href^="#"]');
+
+
+for (let link of linkovi) {
+    
+    link.addEventListener("click", function(dogadjaj) {
+        dogadjaj.preventDefault();
+        let cilj = document.querySelector(this.getAttribute("href"));
+        cilj.scrollIntoView({ behavior: "smooth" });
+        
+    });
+}
