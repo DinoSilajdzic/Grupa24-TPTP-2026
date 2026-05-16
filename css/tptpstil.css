@@ -20,7 +20,7 @@ body.dark-mode {
   --boja-bijela: #1e1e1e;
   --boja-svijetla: #2d2d2d;
   --boja-okvir: #444;
-  --boja-crvena: #c96a6a; /* Zadržavamo prepoznatljive boje brenda */
+  --boja-crvena: #c96a6a;
   --boja-crvena-tamna: #e8a4a4; 
 }
 
@@ -326,4 +326,9 @@ footer a:hover { background: var(--boja-bijela); }
   main:has(.sidebar) .sidebar { grid-area: meni; }
   main:has(.sidebar) .proizvodi { grid-area: proizvodi; }
   main:has(.sidebar) aside { grid-area: aside; margin-top: 0; }
+}
+
+/* Kada miš pređe preko bilo koje slike sa ovom klasom, pretvori se u ruku */
+.kategorija-slika {
+    cursor: pointer;
 }
