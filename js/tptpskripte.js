@@ -143,3 +143,23 @@ if (slikeKategorija.length > 0 && redoviTabele.length > 0) {
         });
     });
 }
+
+//Filtriranje klikom na kategoriju
+//AI mi je preporučio da dodam ovo i pomogao oko čitanja URL-a
+let parametriIzAdrese = new URLSearchParams(window.location.search);
+let trazenaKategorijaIzUrl = parametriIzAdrese.get("kategorija");
+
+if (trazenaKategorijaIzUrl !== null && redoviTabele.length > 0) {
+    redoviTabele.forEach(function(red, index) {
+        if (index === 0) return; 
+        if (trazenaKategorijaIzUrl === "sve") {
+            red.style.display = ""; 
+        } 
+        else if (red.classList.contains(trazenaKategorijaIzUrl)) {
+            red.style.display = ""; 
+        } 
+        else {
+            red.style.display = "none"; 
+        }
+    });
+}
