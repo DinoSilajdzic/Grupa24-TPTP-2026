@@ -69,7 +69,7 @@
 
             <h2>Tabela proizvoda</h2>
 
-            <table border="1">
+            <table border="1" id="moja-tabela">
 
                 <tr>
                     <th>Proizvod</th>
@@ -79,45 +79,133 @@
                     <th>Garancija</th>
                 </tr>
 
-                <tr>
+                <tr class="filteri">
                     <td>Filter ulja</td>
                     <td>Bosch</td>
-                    <td>20 KM</td>
+                    <td>20.00 KM</td>
                     <td>Dostupno</td>
                     <td>1 godina</td>
                 </tr>
 
-                <tr>
+                <tr class="kocnice">
                     <td>Kočione pločice</td>
                     <td>ATE</td>
-                    <td>50 KM</td>
+                    <td>50.00 KM</td>
                     <td>Dostupno</td>
                     <td>2 godine</td>
                 </tr>
 
-                <tr>
+                <tr class="ulja">
                     <td>Motorno ulje</td>
                     <td>Castrol</td>
-                    <td>35 KM</td>
+                    <td>35.00 KM</td>
                     <td>Dostupno</td>
                     <td>6 mjeseci</td>
                 </tr>
 
-                <tr>
+                <tr class="motor">
                     <td>Akumulator</td>
                     <td>Varta</td>
-                    <td>120 KM</td>
+                    <td>120.00 KM</td>
                     <td>Nedostupno</td>
                     <td>2 godine</td>
                 </tr>
 
-                <tr>
+                <tr class="amortizeri">
                     <td>Amortizeri</td>
                     <td>Monroe</td>
-                    <td>80 KM</td>
+                    <td>80.00 KM</td>
                     <td>Dostupno</td>
                     <td>1 godina</td>
                 </tr>
+				
+				<tr class="kocnice">
+            <td>Kočione pločice (set)</td>
+            <td>Bosch</td>
+            <td>65.00 KM</td>
+            <td>Dostupno</td>
+            <td>1 godina</td>
+        </tr>
+        <tr class="kocnice">
+            <td>Kočioni disk</td>
+            <td>Brembo</td>
+            <td>85.00 KM</td>
+            <td>Dostupno</td>
+            <td>2 godine</td>
+        </tr>
+        <tr class="kocnice">
+            <td>Sajla ručne kočnice</td>
+            <td>ATE</td>
+            <td>35.00 KM</td>
+            <td>Dostupno</td>
+            <td>1 godina</td>
+        </tr>
+
+        <tr class="ulja">
+            <td>Motorno ulje EDGE 5W-30 (5L)</td>
+            <td>Castrol</td>
+            <td>80.00 KM</td>
+            <td>Dostupno</td>
+            <td>Nema</td>
+        </tr>
+        <tr class="ulja">
+            <td>Antifriz G12+ (1L)</td>
+            <td>Valvoline</td>
+            <td>12.00 KM</td>
+            <td>Dostupno</td>
+            <td>Nema</td>
+        </tr>
+        <tr class="ulja">
+            <td>Ulje za mjenjač 75W-90 (1L)</td>
+            <td>Liqui Moly</td>
+            <td>28.00 KM</td>
+            <td>Dostupno</td>
+            <td>Nema</td>
+        </tr>
+
+        <tr class="filteri">
+            <td>Filter ulja</td>
+            <td>Mann</td>
+            <td>18.00 KM</td>
+            <td>Dostupno</td>
+            <td>1 godina</td>
+        </tr>
+        <tr class="filteri">
+            <td>Filter zraka</td>
+            <td>Knecht</td>
+            <td>25.00 KM</td>
+            <td>Dostupno</td>
+            <td>1 godina</td>
+        </tr>
+        <tr class="filteri">
+            <td>Filter kabine (klima)</td>
+            <td>Mahle</td>
+            <td>30.00 KM</td>
+            <td>Nedostupno</td>
+            <td>1 godina</td>
+        </tr>
+
+        <tr class="motor">
+            <td>Svjećica (komad)</td>
+            <td>NGK</td>
+            <td>14.00 KM</td>
+            <td>Dostupno</td>
+            <td>1 godina</td>
+        </tr>
+        <tr class="amortizeri">
+            <td>Amortizer (prednji)</td>
+            <td>Monroe</td>
+            <td>95.00 KM</td>
+            <td>Dostupno</td>
+            <td>2 godine</td>
+        </tr>
+        <tr class="motor">
+            <td>Zupčasti remen</td>
+            <td>Continental</td>
+            <td>85.00 KM</td>
+            <td>Dostupno</td>
+            <td>2 godine</td>
+        </tr>
 
             </table>
 
@@ -129,22 +217,22 @@
             <h2>Galerija proizvoda</h2>
 
             <img src="images/felge.png"
-                alt="Aluminijske felge">
+                alt="Prikaži sve" class="kategorija-slika" data-kategorija="sve">
 
             <img src="images/ulje.png"
-                alt="Motorno ulje">
+                alt="Ulja" class="kategorija-slika" data-kategorija="ulja">
 
             <img src="images/kocnice.png"
-                alt="Kočnice">
+                alt="Kočnice" class="kategorija-slika" data-kategorija="kocnice">
 
             <img src="images/akumulator.png"
-                alt="Akumulator">
+                alt="Akumulator" class="kategorija-slika" data-kategorija="motor">
 
             <img src="images/amortizeri.png"
-                alt="Amortizeri">
+                alt="Amortizeri" class="kategorija-slika" data-kategorija="amortizeri">
 
             <img src="images/filteri.png"
-                alt="Filter ulja">
+                alt="Filteri" class="kategorija-slika" data-kategorija="filteri">
 
         </section>
 
