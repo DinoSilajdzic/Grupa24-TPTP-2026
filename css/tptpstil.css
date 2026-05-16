@@ -332,3 +332,42 @@ footer a:hover { background: var(--boja-bijela); }
 .kategorija-slika {
     cursor: pointer;
 }
+
+
+/* STILOVI ZA INTERAKTIVNU KORPU   */
+
+
+#korpa-sekcija {
+    display: none; 
+    margin-top: 20px;
+    padding: 10px 0; 
+}
+
+#poruka-narudzbe {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.korpa-dugme {
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    margin-right: 10px;
+}
+
+.btn-zeleno {
+    background-color: green;
+}
+
+.btn-crveno {
+    background-color: red;
+}
+.dugme-dodaj {
+    background-color: var(--boja-crvena); 
+    color: var(--boja-bijela);
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+	border-radius: 4px;
+}

@@ -163,3 +163,63 @@ if (trazenaKategorijaIzUrl !== null && redoviTabele.length > 0) {
         }
     });
 }
+
+
+// INTERAKTIVNA KORPA
+
+let dodajDugmad = document.querySelectorAll(".dugme-dodaj");
+let korpaSekcija = document.getElementById("korpa-sekcija");
+let tekstKorpe = document.getElementById("tekst-korpe");
+let porukaNarudzbe = document.getElementById("poruka-narudzbe");
+let dugmeNaruci = document.getElementById("dugme-naruci");
+let dugmeOdustani = document.getElementById("dugme-odustani");
+
+let brojProizvoda = 0;
+let ukupnaCijena = 0;
+
+if (dodajDugmad.length > 0) {
+    dodajDugmad.forEach(function(dugme) {
+        
+        dugme.addEventListener("click", function() {
+            let redTabele = this.parentElement.parentElement;
+            let cijenaTekst = redTabele.cells[2].textContent;
+            let stvarnaCijena = parseFloat(cijenaTekst);
+            
+            brojProizvoda = brojProizvoda + 1;
+            ukupnaCijena = ukupnaCijena + stvarnaCijena;
+            
+            korpaSekcija.style.display = "block";
+            porukaNarudzbe.textContent = ""; 
+            tekstKorpe.textContent = "U korpi imate " + brojProizvoda + " proizvoda. Ukupna cijena: " + ukupnaCijena.toFixed(2) + " KM";
+        });
+        
+    });
+}
+
+//Akcija za dugme "Naruči"
+if (dugmeNaruci) {
+    dugmeNaruci.addEventListener("click", function() {
+        if (brojProizvoda > 0) {
+            porukaNarudzbe.textContent = "Narudžba je poslana!";
+            porukaNarudzbe.style.color = "green";
+            
+            brojProizvoda = 0;
+            ukupnaCijena = 0;
+            tekstKorpe.textContent = "U korpi imate 0 proizvoda. Ukupna cijena: 0.00 KM";
+        }
+    });
+}
+
+//Akcija za dugme "Odustani"
+if (dugmeOdustani) {
+    dugmeOdustani.addEventListener("click", function() {
+        porukaNarudzbe.textContent = "Odustali ste od kupovine.";
+        porukaNarudzbe.style.color = "red";
+        brojProizvoda = 0;
+        ukupnaCijena = 0;
+        tekstKorpe.textContent = "U korpi imate 0 proizvoda. Ukupna cijena: 0.00 KM";
+        setTimeout(function() {
+            korpaSekcija.style.display = "none";
+        }, 2000);
+    });
+}
