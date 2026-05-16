@@ -33,3 +33,83 @@ for (let link of linkovi) {
         
     });
 }
+
+//Validacija kontakt forme
+let forma = document.getElementById("kontakt-forma");
+
+if (forma) {
+    forma.addEventListener("submit", function(dogadjaj) {
+        dogadjaj.preventDefault();
+        
+        let ime = document.getElementById("ime").value;
+        let prezime = document.getElementById("prezime").value;
+        let email = document.getElementById("email").value;
+        let telefon = document.getElementById("telefon").value;
+        let tema = document.getElementById("tema").value; 
+        let poruka = document.getElementById("poruka").value.trim();
+        
+        let sveGreske = document.querySelectorAll(".greska");
+        let greskaIme = sveGreske[0];
+        let greskaPrezime = sveGreske[1];
+        let greskaEmail = sveGreske[2];
+        let greskaTelefon = sveGreske[3];
+        let greskaTema = sveGreske[4];   
+        let greskaPoruka = sveGreske[5]; 
+        
+        greskaIme.textContent = "";
+        greskaPrezime.textContent = "";
+        greskaEmail.textContent = "";
+        greskaTelefon.textContent = "";
+        greskaTema.textContent = "";
+        greskaPoruka.textContent = "";
+        
+        let sveJeUredu = true;
+        
+        if (ime === "") {
+            greskaIme.textContent = "Molimo unesite ime.";
+            greskaIme.style.color = "red";
+            sveJeUredu = false;
+        }
+        
+        if (prezime === "") {
+            greskaPrezime.textContent = "Molimo unesite prezime.";
+            greskaPrezime.style.color = "red";
+            sveJeUredu = false;
+        }
+        
+        if (email === "") {
+            greskaEmail.textContent = "Molimo unesite email.";
+            greskaEmail.style.color = "red";
+            sveJeUredu = false;
+        } else if (email.includes("@") === false) {
+            greskaEmail.textContent = "Email mora sadržavati znak @.";
+            greskaEmail.style.color = "red";
+            sveJeUredu = false;
+        }
+
+        if (telefon === "") {
+            greskaTelefon.textContent = "Molimo unesite broj telefona.";
+            greskaTelefon.style.color = "red";
+            sveJeUredu = false;
+        }
+
+        if (tema === "") {
+            greskaTema.textContent = "Molimo odaberite temu upita.";
+            greskaTema.style.color = "red";
+            sveJeUredu = false;
+        }
+        
+        if (poruka === "") {
+            greskaPoruka.textContent = "Molimo unesite poruku.";
+            greskaPoruka.style.color = "red";
+            sveJeUredu = false;
+        }
+        
+        if (sveJeUredu === true) {
+            let ispisPoruke = document.getElementById("uspjesna-poruka");
+            ispisPoruke.textContent = "Uspješno poslano! Hvala Vam, " + ime + " " + prezime + ".";
+            ispisPoruke.style.color = "green";
+            forma.reset();
+        }
+    });
+}
