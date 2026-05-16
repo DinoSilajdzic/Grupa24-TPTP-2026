@@ -113,3 +113,33 @@ if (forma) {
         }
     });
 }
+
+//Filtriranje tabele klikom na sliku
+
+let slikeKategorija = document.querySelectorAll(".kategorija-slika");
+let redoviTabele = document.querySelectorAll("#moja-tabela tr");
+
+//Dodavanje funkcije za klik ako na stranici postoje slike
+if (slikeKategorija.length > 0 && redoviTabele.length > 0) {
+    
+    //Prolazimo kroz svaku sliku pojedinačno
+    slikeKategorija.forEach(function(slika) {
+        
+        slika.addEventListener("click", function() {
+            let trazenaKategorija = this.getAttribute("data-kategorija");  
+            //Prolazimo kroz sve redove u tabeli
+            redoviTabele.forEach(function(red, index) {
+                if (index === 0) return; 
+                if (trazenaKategorija === "sve") {
+                    red.style.display = ""; 
+                }
+                else if (red.classList.contains(trazenaKategorija)) {
+                    red.style.display = ""; 
+                } 
+                else {
+                    red.style.display = "none"; 
+                }
+            });
+        });
+    });
+}
