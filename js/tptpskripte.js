@@ -286,3 +286,26 @@ if (dugmeOdustani) {
         }, 2000);
     });
 }
+
+//Sat koji pokazuje vrijeme i datum
+
+function azurirajSat() {
+    let sada = new Date(); 
+    
+    let dan = sada.getDate();
+    let mjesec = sada.getMonth() + 1;
+    let godina = sada.getFullYear();
+    
+    let sati = sada.getHours().toString().padStart(2, '0');
+    let minute = sada.getMinutes().toString().padStart(2, '0');
+    let sekunde = sada.getSeconds().toString().padStart(2, '0');
+    
+    let tekstSata =  + sati + ":" + minute + ":" + sekunde + " | " + dan + "." + mjesec + "." + godina + ".";
+    
+    let satElement = document.getElementById("dinamicki-sat");
+    if (satElement) {
+        satElement.textContent = tekstSata;
+    }
+}
+azurirajSat();
+setInterval(azurirajSat, 1000);

@@ -893,3 +893,11 @@ footer a:hover { background: var(--boja-bijela); }
 .korpa-dugme.btn-zeleno:hover {
   animation: pulse 0.5s ease;
 }
+
+#dinamicki-sat {
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: inherit; 
+    opacity: 0.8; 
+}
