@@ -20,37 +20,51 @@
 
 <body id="top">
 
+    <div class="ucitavanje-overlay" aria-hidden="true">
+        <div class="ucitavanje-spinner"></div>
+        <p>Učitavanje...</p>
+    </div>
+
     <!-- HEADER -->
     <header>
 
-        <div class="logo">
+        <div class="header-red">
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo AutoDijelovi Kuga">
+                <h1>AutoDijelovi Kuga</h1>
+            </div>
 
-            <img src="images/logo.png"
-                alt="Logo AutoDijelovi Kuga">
-
-            <h1>AutoDijelovi Kuga</h1>
-
+            <button type="button" class="burger-btn" id="burger-btn"
+                aria-label="Otvori meni" aria-expanded="false" aria-controls="side-menu">
+                <span class="burger-linija"></span>
+                <span class="burger-linija"></span>
+                <span class="burger-linija"></span>
+            </button>
         </div>
 
-        <!-- Navigacija -->
-        <nav>
-
+        <nav class="nav-desktop glavna-navigacija">
             <a href="index.html">Početna</a>
             <a href="sadrzaj.html">Sadržaj</a>
             <a href="kontakt.html">Kontakt</a>
-
-            <!-- GitHub link -->
-            <a href="https://github.com/"
-                target="_blank">
-
-                GitHub Repozitorij
-
-            </a>
-           <button id="theme-toggle" class="btn-tema">Tamni mod</button>
-
+            <a href="https://github.com/" target="_blank">GitHub Repozitorij</a>
+            <button type="button" id="theme-toggle" class="btn-tema">Tamni mod</button>
         </nav>
 
     </header>
+
+    <div class="menu-overlay" id="menu-overlay" aria-hidden="true"></div>
+
+    <nav class="nav-mobilni" id="side-menu" aria-hidden="true">
+        <div class="nav-mobilni-zaglavlje">
+            <h2>Meni</h2>
+            <button type="button" class="menu-zatvori" id="menu-zatvori" aria-label="Zatvori meni">&times;</button>
+        </div>
+        <a href="index.html">Početna</a>
+        <a href="sadrzaj.html">Sadržaj</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="https://github.com/" target="_blank">GitHub Repozitorij</a>
+        <button type="button" class="btn-tema btn-tema-mobil">Tamni mod</button>
+    </nav>
 
     <!-- MAIN -->
     <main>
@@ -234,7 +248,7 @@
     <footer>
 
         <p>
-            © 2026 AutoDijelovi Kuga
+            © 2026 <a href="#top">AutoDijelovi Kuga</a>
         </p>
 
         <p>
@@ -242,11 +256,6 @@
             Dino Porčić |
             Đorđe Kuga
         </p>
-
-        <!-- Bookmark -->
-        <a href="#top">
-            Skoči na vrh
-        </a>
 
     </footer>
 </body>
