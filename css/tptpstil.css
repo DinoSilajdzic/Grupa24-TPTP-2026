@@ -901,3 +901,47 @@ footer a:hover { background: var(--boja-bijela); }
     color: inherit; 
     opacity: 0.8; 
 }
+#galerija div {
+    display: inline-block; 
+    text-align: center;    
+    margin: 10px;
+    vertical-align: top;	
+}
+
+#galerija p {
+    font-weight: bold;
+    margin-top: 5px;     
+}
+
+#galerija h2 {
+    width: 100%;
+}
+
+.galerija-item {
+    width: 130px; 
+    text-align: center;
+}
+
+.galerija-item p {
+    margin: 8px 0 0 0;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.galerija-item img {
+    width: 100% !important;
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+    .galerija-item {
+        width: 110px;
+    }
+}
+
+@media (max-width: 599px) {
+    .galerija-item {
+        width: calc(50% - 0.4rem) !important;
+        max-width: 160px;
+        flex: 1 1 calc(50% - 0.4rem);
+    }
+}
