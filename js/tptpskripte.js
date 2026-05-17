@@ -1,36 +1,92 @@
 // Tamni mod
-let dugme = document.getElementById("theme-toggle");
+let dugmadTema = document.querySelectorAll(".btn-tema");
+
+function postaviTekstTeme(tekst) {
+    for (let d of dugmadTema) {
+        d.textContent = tekst;
+    }
+}
 
 if (localStorage.getItem("tema") === "tamna") {
     document.body.classList.add("dark-mode");
-    dugme.textContent = "Svijetli mod";
+    postaviTekstTeme("Svijetli mod");
 }
 
-dugme.addEventListener("click", function() {
-      
-    document.body.classList.toggle("dark-mode");
-	
-    if (document.body.classList.contains("dark-mode")) {
-        localStorage.setItem("tema", "tamna"); 
-        dugme.textContent = "Svijetli mod";    
-    } 
-    else {
-        localStorage.setItem("tema", "svijetla"); 
-        dugme.textContent = "Tamni mod";          
-    }
-});
+for (let dugme of dugmadTema) {
+    dugme.addEventListener("click", function() {
+        document.body.classList.toggle("dark-mode");
 
-//Smooth scroll
+        if (document.body.classList.contains("dark-mode")) {
+            localStorage.setItem("tema", "tamna");
+            postaviTekstTeme("Svijetli mod");
+        }
+        else {
+            localStorage.setItem("tema", "svijetla");
+            postaviTekstTeme("Tamni mod");
+        }
+    });
+}
+
+// Burger meni (mobil + tablet)
+let burgerBtn = document.getElementById("burger-btn");
+let menuOverlay = document.getElementById("menu-overlay");
+let sideMenu = document.getElementById("side-menu");
+let menuZatvori = document.getElementById("menu-zatvori");
+
+function otvoriMeni() {
+    document.body.classList.add("menu-otvoren");
+    if (burgerBtn) burgerBtn.setAttribute("aria-expanded", "true");
+    if (sideMenu) sideMenu.setAttribute("aria-hidden", "false");
+    if (menuOverlay) menuOverlay.setAttribute("aria-hidden", "false");
+}
+
+function zatvoriMeni() {
+    document.body.classList.remove("menu-otvoren");
+    if (burgerBtn) burgerBtn.setAttribute("aria-expanded", "false");
+    if (sideMenu) sideMenu.setAttribute("aria-hidden", "true");
+    if (menuOverlay) menuOverlay.setAttribute("aria-hidden", "true");
+}
+
+if (burgerBtn && sideMenu) {
+    burgerBtn.addEventListener("click", function() {
+        if (document.body.classList.contains("menu-otvoren")) {
+            zatvoriMeni();
+        }
+        else {
+            otvoriMeni();
+        }
+    });
+
+    if (menuOverlay) {
+        menuOverlay.addEventListener("click", zatvoriMeni);
+    }
+
+    if (menuZatvori) {
+        menuZatvori.addEventListener("click", zatvoriMeni);
+    }
+
+    let linkoviMeni = sideMenu.querySelectorAll("a");
+    for (let link of linkoviMeni) {
+        link.addEventListener("click", zatvoriMeni);
+    }
+
+    document.addEventListener("keydown", function(dogadjaj) {
+        if (dogadjaj.key === "Escape") {
+            zatvoriMeni();
+        }
+    });
+}
+
+// Smooth scroll (samo anchor linkovi na istoj stranici)
 let linkovi = document.querySelectorAll('a[href^="#"]');
 
-
 for (let link of linkovi) {
-    
     link.addEventListener("click", function(dogadjaj) {
-        dogadjaj.preventDefault();
         let cilj = document.querySelector(this.getAttribute("href"));
-        cilj.scrollIntoView({ behavior: "smooth" });
-        
+        if (cilj) {
+            dogadjaj.preventDefault();
+            cilj.scrollIntoView({ behavior: "smooth" });
+        }
     });
 }
 
@@ -189,6 +245,7 @@ if (dodajDugmad.length > 0) {
             ukupnaCijena = ukupnaCijena + stvarnaCijena;
             
             korpaSekcija.style.display = "block";
+            korpaSekcija.classList.add("korpa-otvorena");
             porukaNarudzbe.textContent = ""; 
             tekstKorpe.textContent = "U korpi imate " + brojProizvoda + " proizvoda. Ukupna cijena: " + ukupnaCijena.toFixed(2) + " KM";
         });
@@ -202,6 +259,9 @@ if (dugmeNaruci) {
         if (brojProizvoda > 0) {
             porukaNarudzbe.textContent = "Narudžba je poslana!";
             porukaNarudzbe.style.color = "green";
+            porukaNarudzbe.classList.remove("anim-poruka");
+            void porukaNarudzbe.offsetWidth;
+            porukaNarudzbe.classList.add("anim-poruka");
             
             brojProizvoda = 0;
             ukupnaCijena = 0;
@@ -215,6 +275,9 @@ if (dugmeOdustani) {
     dugmeOdustani.addEventListener("click", function() {
         porukaNarudzbe.textContent = "Odustali ste od kupovine.";
         porukaNarudzbe.style.color = "red";
+        porukaNarudzbe.classList.remove("anim-poruka");
+        void porukaNarudzbe.offsetWidth;
+        porukaNarudzbe.classList.add("anim-poruka");
         brojProizvoda = 0;
         ukupnaCijena = 0;
         tekstKorpe.textContent = "U korpi imate 0 proizvoda. Ukupna cijena: 0.00 KM";
